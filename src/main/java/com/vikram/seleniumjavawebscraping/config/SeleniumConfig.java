@@ -10,7 +10,7 @@ public class SeleniumConfig {
 
     @PostConstruct
     void setDriver(){
-        System.setProperty("webdriver.chrome.driver","/Users/vikramsinghbedi/Documents/dev/selenium-java-webscraping/chromedriver");
+        System.setProperty("webdriver.chrome.driver","./chromedriver");
     }
 
     @Bean
