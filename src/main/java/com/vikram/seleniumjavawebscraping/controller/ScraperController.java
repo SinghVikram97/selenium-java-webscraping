@@ -21,4 +21,9 @@ public class ScraperController {
     public List<String> getSimilarWordsViaInput(@PathVariable String word){
         return scraperService.scrapeByPopulatingInputField(word);
     }
+
+    @GetMapping("/v3/scrape/{word}")
+    public List<String> getSimilarWordsViaInputExplicitWait(@PathVariable String word){
+        return scraperService.scrapeByPopulatingInputFieldExplicitWait(word);
+    }
 }
