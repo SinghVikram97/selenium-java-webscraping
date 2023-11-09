@@ -16,16 +16,10 @@ public class ScraperService {
 
     private final ChromeDriver chromeDriver;
 
-    @PostConstruct
-    void invokeScrape(){
-        scrape("hello");
-    }
-
-    public void scrape(final String value){
+    public List<String> scrape(final String value){
         chromeDriver.get(URL+value);
         WebElement words = chromeDriver.findElement(By.className("words"));
         List<WebElement> wordList = words.findElements(By.tagName("a"));
-        wordList.forEach(word -> System.out.println(word.getText()));
-        chromeDriver.quit();
+        return wordList.stream().map(WebElement::getText).toList();
     }
 }
