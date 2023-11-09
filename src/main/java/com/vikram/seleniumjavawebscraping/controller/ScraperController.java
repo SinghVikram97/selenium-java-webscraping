@@ -12,8 +12,13 @@ import java.util.List;
 @AllArgsConstructor
 public class ScraperController {
     private final ScraperService scraperService;
-    @GetMapping("/scrape/{word}")
+    @GetMapping("/v1/scrape/{word}")
     public List<String> getSimilarWords(@PathVariable String word){
         return scraperService.scrape(word);
+    }
+
+    @GetMapping("/v2/scrape/{word}")
+    public List<String> getSimilarWordsViaInput(@PathVariable String word){
+        return scraperService.scrapeByPopulatingInputField(word);
     }
 }
